@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.chatway.mobile",
+      "sha256_cert_fingerprints": [
+        "35:75:81:FA:FD:5D:BD:5D:07:1B:81:F9:2B:1F:1E:4C:69:53:5C:BB:35:88:5F:42:7D:9C:C0:DE:B1:E9:83:89"
+      ]
+    }
+  }
+]

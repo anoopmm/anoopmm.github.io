@@ -1,4 +1,40 @@
-<html>
-    <!-- <script id="chatway" async="true" src="https://dev-cdn.chatway.app/widget.js?id=yekFFnBMHAbo"></script> -->
-    <script id="chatway" async="true" src="https://cdn.chatway.app/widget.js?id=rBNz7xDhPSBD"></script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Widget</title>
+</head>
+<body>
+    <script id="chatway" async="true" src="https://dev-cdn.chatway.app/widget.js?id=yekFFnBMHAbo"></script>
+
+    <script>
+        // Function to detect class change
+        function detectWidgetOpen() {
+            const observer = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                        const targetElement = mutation.target;
+                        if (targetElement.classList.contains('widget--open')) {
+                            // Notify Android that the widget is open
+                            if (window.AndroidInterface) {
+                                window.AndroidInterface.onWidgetOpened();
+                            }
+                        }
+                    }
+                });
+            });
+
+            // Observe the specific div with the class 'chatway--container'
+            const targetNode = document.querySelector('.chatway--container');
+            if (targetNode) {
+                observer.observe(targetNode, { attributes: true });
+            }
+        }
+
+        // Call the function to start observing
+        detectWidgetOpen();
+    </script>
+</body>
 </html>

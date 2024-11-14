@@ -27,7 +27,9 @@
       },
       {
         "appID": "FS7DYR5Z5T.com.chatway",
-        "paths": "NOT /plans"
+        "paths": [
+          "NOT /plans"
+        ]
       }
     ]
   },

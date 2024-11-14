@@ -1,10 +1,10 @@
 {
   "applinks": {
-    "apps": [],
     "details": [
       {
         "appIDs": [
-          "FS7DYR5Z5T.com.chatway"
+          "ABCDE12345.com.example.app",
+          "ABCDE12345.com.example.app2"
         ],
         "components": [
           {
@@ -13,13 +13,20 @@
             "comment": "Matches any URL with a fragment that equals no_universal_links and instructs the system not to open it as a universal link."
           },
           {
-            "/": "/conversations/*",
-            "comment": "Matches any URL with a path that starts with /conversations/."
+            "/": "/buy/*",
+            "comment": "Matches any URL with a path that starts with /buy/."
           },
           {
-            "/": "/plans/*",
+            "/": "/help/website/*",
             "exclude": true,
             "comment": "Matches any URL with a path that starts with /help/website/ and instructs the system not to open it as a universal link."
+          },
+          {
+            "/": "/help/*",
+            "?": {
+              "articleNumber": "????"
+            },
+            "comment": "Matches any URL with a path that starts with /help/ and that has a query item with name 'articleNumber' and a value of exactly four characters."
           }
         ]
       }
@@ -27,7 +34,12 @@
   },
   "webcredentials": {
     "apps": [
-      "FS7DYR5Z5T.com.chatway"
+      "ABCDE12345.com.example.app"
+    ]
+  },
+  "appclips": {
+    "apps": [
+      "ABCDE12345.com.example.MyApp.Clip"
     ]
   }
 }

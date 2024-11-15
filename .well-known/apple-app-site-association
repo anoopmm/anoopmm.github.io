@@ -12,6 +12,10 @@
             "comment": "Matches any URL with a path that starts with /conversations/."
           },
           {
+            "/": "/conversations",
+            "comment": "Matches any URL with a path that starts with /conversations/."
+          },
+          {
             "/": "/plans",
             "exclude": true
           }

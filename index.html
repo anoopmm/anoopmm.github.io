@@ -12,30 +12,12 @@
 
     <script>
         // Function to detect class change
-        function detectWidgetOpen() {
-            const observer = new MutationObserver((mutations) => {
-                mutations.forEach((mutation) => {
-                    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-                        const targetElement = mutation.target;
-                        if (targetElement.classList.contains('widget--open')) {
-                            // Notify Android that the widget is open
-                            if (window.AndroidInterface) {
-                                window.AndroidInterface.onWidgetOpened();
-                            }
-                        }
-                    }
-                });
-            });
-
-            // Observe the specific div with the class 'chatway--container'
-            const targetNode = document.querySelector('.chatway--container');
-            if (targetNode) {
-                observer.observe(targetNode, { attributes: true });
-            }
-        }
-
-        // Call the function to start observing
-        detectWidgetOpen();
+        window.addEventListener("popstate", function (event) {
+            event.preventDefault();
+    console.log("Back button was pressed!");
+    // Handle back button event here
+    alert("You pressed the back button!");
+});
     </script>
 </body>
 </html>

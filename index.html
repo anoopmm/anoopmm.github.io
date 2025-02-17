@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,17 +8,28 @@
 
     <title>Chat Widget</title>
 </head>
+
 <body>
 
     <script>
-        // Function to detect class change
-        window.addEventListener("popstate", function (event) {
-            event.preventDefault();
-            alert("You pressed the back button!");
-    console.log("Back button was pressed!");
-    // Handle back button event here
-    alert("You pressed the back button!");
-});
+        // When page loads, add a dummy state to history
+        window.addEventListener('load', function () {
+            window.history.pushState({ page: 1 }, '', window.location.href);
+        });
+
+        // Listen for back button press
+        window.addEventListener('popstate', function (event) {
+            // Push another state to prevent going back
+            window.history.pushState({ page: 1 }, '', window.location.href);
+
+            // Optional: Show a message to user
+            // You could show a toast, modal, or other notification
+            alert("Use the website's navigation instead of the back button");
+
+            // Or you could redirect to your desired page
+            // window.location.href = 'your-desired-page.html';
+        });
     </script>
 </body>
+
 </html>
